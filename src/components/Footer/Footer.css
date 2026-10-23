@@ -1,0 +1,86 @@
+/* Footer Component Styles */
+.site-footer {
+  background-color: #0b111a;
+  color: #94a3b8;
+  padding: var(--spacing-12) 0 var(--spacing-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footer-col__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.footer-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  align-self: flex-start;
+  filter: brightness(0) invert(1);
+}
+
+.footer-text {
+  font-size: var(--font-size-sm);
+  color: #64748b;
+  max-width: 360px;
+  line-height: 1.6;
+}
+
+.footer-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  margin-bottom: var(--spacing-4);
+  font-family: var(--font-family-heading);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.footer-link {
+  font-size: var(--font-size-sm);
+  color: #94a3b8;
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--color-primary);
+}
+
+.footer-bottom {
+  padding-top: var(--spacing-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  font-size: var(--font-size-xs);
+  color: #64748b;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .footer-bottom {
+    flex-direction: row;
+    text-align: left;
+  }
+}
