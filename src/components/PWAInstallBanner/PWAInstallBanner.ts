@@ -1,4 +1,5 @@
 import './PWAInstallBanner.css';
+import { getAssetUrl } from '../../utils/helpers';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -11,7 +12,7 @@ export function renderPWAInstallBanner(): string {
   return `
     <div class="pwa-banner" id="pwa-install-banner" role="dialog" aria-labelledby="pwa-title" aria-describedby="pwa-desc">
       <div class="pwa-banner__header">
-        <img src="/icons/icon-192x192.png" alt="Habite Engenharia App" class="pwa-banner__icon" width="44" height="44" />
+        <img src="${getAssetUrl('icons/icon-192x192.png')}" alt="Habite Engenharia App" class="pwa-banner__icon" width="44" height="44" />
         <div class="pwa-banner__info">
           <div class="pwa-banner__title" id="pwa-title">Instalar Habite Engenharia</div>
           <div class="pwa-banner__desc" id="pwa-desc">Acesso rápido aos serviços e contatos no seu aparelho</div>

@@ -1,5 +1,6 @@
 import './About.css';
 import { COMPANY_DATA } from '../../data/company';
+import { getAssetUrl } from '../../utils/helpers';
 
 export function renderAbout(): string {
   return `
@@ -8,7 +9,7 @@ export function renderAbout(): string {
         <div class="about-wrapper">
           <div class="about-media">
             <img
-              src="/assets/logo-habite-site-quem-somos.webp"
+              src="${getAssetUrl('assets/logo-habite-site-quem-somos.webp')}"
               alt="Habite Engenharia - Quem Somos"
               class="about-image"
               width="480"

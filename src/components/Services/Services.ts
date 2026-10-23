@@ -1,7 +1,7 @@
 import './Services.css';
 import { SERVICES_DATA } from '../../data/services';
 import { COMPANY_DATA } from '../../data/company';
-import { buildWhatsAppUrl } from '../../utils/helpers';
+import { buildWhatsAppUrl, getAssetUrl } from '../../utils/helpers';
 
 export function renderServices(): string {
   const cardsHtml = SERVICES_DATA.map((service) => {
@@ -25,7 +25,7 @@ export function renderServices(): string {
       <article class="service-card" id="${service.id}">
         <div class="service-card__media">
           <img
-            src="${service.imagePath}"
+            src="${getAssetUrl(service.imagePath)}"
             alt="${service.title}"
             class="service-card__image"
             width="600"

@@ -1,5 +1,6 @@
 import './Footer.css';
 import { COMPANY_DATA } from '../../data/company';
+import { getAssetUrl } from '../../utils/helpers';
 
 export function renderFooter(): string {
   const currentYear = new Date().getFullYear();
@@ -10,7 +11,7 @@ export function renderFooter(): string {
         <div class="footer-grid">
           <div class="footer-col__brand">
             <img
-              src="/assets/logo-para-site.webp"
+              src="${getAssetUrl('assets/logo-para-site.webp')}"
               alt="Habite Engenharia"
               class="footer-logo"
               width="180"

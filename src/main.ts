@@ -8,11 +8,12 @@ import { renderContact } from './components/Contact/Contact';
 import { renderFooter } from './components/Footer/Footer';
 import { renderWhatsAppButton } from './components/WhatsAppButton/WhatsAppButton';
 import { renderPWAInstallBanner, initPWAInstall } from './components/PWAInstallBanner/PWAInstallBanner';
+import { getAssetUrl } from './utils/helpers';
 
 // PWA Service Worker Registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch((err) => {
+    navigator.serviceWorker.register(getAssetUrl('sw.js')).catch((err) => {
       console.error('Falha ao registrar Service Worker:', err);
     });
   });

@@ -1,5 +1,6 @@
 import './TargetAudience.css';
 import { TARGET_AUDIENCE_DATA } from '../../data/services';
+import { getAssetUrl } from '../../utils/helpers';
 
 export function renderTargetAudience(): string {
   const iconsMap: Record<string, string> = {
@@ -26,7 +27,7 @@ export function renderTargetAudience(): string {
       <div class="container">
         <div class="audience-divider">
           <img
-            src="/assets/divisa-branco-seta.webp"
+            src="${getAssetUrl('assets/divisa-branco-seta.webp')}"
             alt="Divisória decorativa"
             width="600"
             height="48"

@@ -1,6 +1,6 @@
 import './Header.css';
 import { COMPANY_DATA } from '../../data/company';
-import { buildWhatsAppUrl } from '../../utils/helpers';
+import { buildWhatsAppUrl, getAssetUrl } from '../../utils/helpers';
 
 export function renderHeader(): string {
   const whatsappUrl = buildWhatsAppUrl(
@@ -13,7 +13,7 @@ export function renderHeader(): string {
       <div class="container">
         <a href="#topo" class="site-header__brand" aria-label="Habite Engenharia - Página Inicial">
           <img
-            src="/assets/logo-para-site.webp"
+            src="${getAssetUrl('assets/logo-para-site.webp')}"
             alt="Habite Engenharia"
             class="site-header__logo"
             width="200"
