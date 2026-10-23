@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "lint": "eslint src/ --ext .ts",
     "typecheck": "tsc --noEmit",
-    "format": "prettier --write \"src/**/*.{ts,css,html}\""
+    "format": "prettier --write \"src/**/*.{ts,css,html}\"",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {},
   "devDependencies": {
@@ -19,6 +20,7 @@
     "@typescript-eslint/eslint-plugin": "^8.16.0",
     "@typescript-eslint/parser": "^8.16.0",
     "eslint": "^9.16.0",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.4.1",
     "typescript": "^5.7.2",
     "vite": "^6.0.1",
