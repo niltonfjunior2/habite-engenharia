@@ -35,3 +35,7 @@ pnpm-debug.log*
 # Cache de ferramentas
 .eslintcache
 .stylelintcache
+
+# Governança e IA local
+.ai/
+
