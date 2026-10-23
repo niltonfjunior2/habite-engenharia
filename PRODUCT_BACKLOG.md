@@ -8,13 +8,13 @@
 
 ## VISÃO GERAL DAS EPICS
 
-* **EPIC 1: Fundação & Identidade Canônica (Fase 1)** — Estruturação do core, design system da marca e layout responsivo mobile-first.
-* **EPIC 2: Catálogo de Serviços & Proposta de Valor (Fase 1)** — Apresentação dos serviços de Regularização de Imóveis e Projetos de Incêndio/AVCB com segmentação de público.
-* **EPIC 3: Canais de Conversão & Ergonomia Mobile (Fase 1)** — Implementação de botões flutuantes de WhatsApp, links de e-mail e CTAs estratégicos.
-* **EPIC 4: PWA & Experiência Offline (Fase 1)** — Configuração de manifest, service worker, banners de instalação e suporte a múltiplos dispositivos.
-* **EPIC 5: Gestão de Leads & Integração Supabase (Fase 2)** — Backend, banco de dados para contatos e formulário inteligente.
-* **EPIC 6: Portfólio Dinâmico & CMS (Fase 2)** — Cadastro de obras, notícias e publicações pelo time interno.
-* **EPIC 7: Portal do Cliente & Laudos (Fase 2)** — Área restrita para download de laudos, ARTs e acompanhamento de vistorias.
+* **EPIC 1: Fundação & Identidade Canônica (Fase 1)** — `[CONCLUÍDO]` Estruturação do core, design system da marca e layout responsivo mobile-first.
+* **EPIC 2: Catálogo de Serviços & Proposta de Valor (Fase 1)** — `[CONCLUÍDO]` Apresentação dos serviços de Regularização de Imóveis e Projetos de Incêndio/AVCB com segmentação de público.
+* **EPIC 3: Canais de Conversão & Ergonomia Mobile (Fase 1)** — `[CONCLUÍDO]` Implementação de botões flutuantes de WhatsApp, links de e-mail e CTAs estratégicos.
+* **EPIC 4: PWA & Experiência Offline (Fase 1)** — `[CONCLUÍDO]` Configuração de manifest, service worker, banners de instalação e suporte a múltiplos dispositivos.
+* **EPIC 5: Gestão de Leads & Integração Supabase (Fase 2)** — `[BACKLOG]` Backend, banco de dados para contatos e formulário inteligente.
+* **EPIC 6: Portfólio Dinâmico & CMS (Fase 2)** — `[BACKLOG]` Cadastro de obras, notícias e publicações pelo time interno.
+* **EPIC 7: Portal do Cliente & Laudos (Fase 2)** — `[BACKLOG]` Área restrita para download de laudos, ARTs e acompanhamento de vistorias.
 
 ---
 
