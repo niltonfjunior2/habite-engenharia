@@ -48,7 +48,8 @@ Este repositório contém a **Landing Page Canônica Moderna** da empresa, desen
 * 📱 **Mobile-First & Ergonomia:** Layout concebido primeiramente para telas estreitas (360px a 430px), com todos os botões de ação e conversão posicionados na zona de alcance natural do polegar (*thumb zone*).
 * ⚡ **Progressive Web App (PWA):**
   * Instalável em Android, iOS e Windows/macOS através do W3C Manifest.
-  * Botão de instalação nativo no topo da barra de navegação e banner inteligente com controle de dispensa no `localStorage`.
+  * **Botão "Instalar App" no Header:** Acesso direto na barra de navegação superior ao lado de "Falar com Engenheiro".
+  * **Toast Banner Inteligente:** Diálogo discreto na base da tela com persistência de escolha ("Agora não") no `localStorage`.
   * **Service Worker com Cache Offline:** Estratégia *Stale-While-Revalidate* que permite a consulta aos telefones e serviços da empresa mesmo em locais de obra sem conectividade.
 * 💬 **Conversão Direta sem Fricção:**
   * Botão flutuante de WhatsApp com animação de pulso e mensagens parametrizadas em UTF-8.
@@ -77,20 +78,29 @@ Este repositório contém a **Landing Page Canônica Moderna** da empresa, desen
 
 ```
 habite-engenharia/
-├── .ai/                            # Prompts de governança arquitetural (Socrático, Sprints, Review)
-├── public/                         # Assets públicos estáticos
-│   ├── assets/                     # Imagens e logotipos WebP da marca (sem hotlink externo)
+├── .ai/                            # Governança arquitetural local (ignorado no Git via .gitignore)
+│   ├── 1 - Arquiteto_Socrático.md  # Prompt de descoberta arquitetural estratégica
+│   ├── 2 - Estruturar.md           # Prompt de estruturação de projeto
+│   ├── 3 - Iniciar Sprint.md       # Prompt de execução de sprint
+│   ├── 4 - Sprint Review.md        # Prompt de auditoria e revisão de sprint
+│   ├── AI_EXECUTION_GUIDE.md       # Regras invioláveis para desenvolvimento
+│   ├── ENGINEERING_JOURNAL.md      # Diário de engenharia e lições aprendidas
+│   ├── IMPLEMENTATION_PLAN.md      # Roadmap de fases e sprints
+│   ├── PRODUCT_BACKLOG.md          # Backlog de Epics e User Stories
+│   └── PROJECT_DNA.md              # Documento mestre de arquitetura
+├── public/                         # Assets públicos servidos no root
+│   ├── assets/                     # Imagens e logotipos WebP da marca (locais)
 │   ├── icons/                      # Ícones PWA multi-resolução (192px, 512px, apple-touch-icon, svg)
 │   ├── manifest.webmanifest        # Manifesto oficial do PWA
-│   └── sw.js                       # Service worker com cache offline e Stale-While-Revalidate
-├── scripts/                        # Scripts utilitários de geração de assets
+│   └── sw.js                       # Service worker com cache offline Stale-While-Revalidate
+├── scripts/                        # Scripts utilitários de build de assets
 │   └── generate-icons.ps1
 ├── src/
 │   ├── components/                 # Módulos de interface desacoplados
 │   │   ├── About/                  # Seção institucional Quem Somos
 │   │   ├── Contact/                # Seção de canais de contato e conversão
 │   │   ├── Footer/                 # Rodapé com links de navegação e copyright
-│   │   ├── Header/                 # Topbar com logo, menu e botões de ação
+│   │   ├── Header/                 # Topbar com logo, menu, botão Instalar App e CTA
 │   │   ├── Hero/                   # Seção de abertura de alto impacto
 │   │   ├── PWAInstallBanner/       # Diálogo e botão de instalação do PWA
 │   │   ├── Services/               # Cards detalhados de Regularização e AVCB
@@ -112,12 +122,12 @@ habite-engenharia/
 │   ├── header.test.ts
 │   ├── sprint2.test.ts
 │   └── sprint3.test.ts
-├── AI_EXECUTION_GUIDE.md           # Regras invioláveis para desenvolvimento
-├── ENGINEERING_JOURNAL.md          # Diário de engenharia e lições aprendidas
-├── IMPLEMENTATION_PLAN.md          # Roadmap detalhado de fases e sprints
-├── PRODUCT_BACKLOG.md              # Backlog estruturado de Epics e User Stories
-├── PROJECT_DNA.md                  # Documento mestre de arquitetura estratégica
+├── .gitignore                      # Regras de exclusão do Git (inclui .ai/, node_modules/, dist/)
 ├── vercel.json                     # Configuração de headers de segurança e cache
+├── vite.config.ts                  # Configuração de build e testes
+├── tsconfig.json                   # Configuração estrita do TypeScript
+├── eslint.config.js                # Linter ESLint 9 (Flat Config)
+├── .prettierrc                     # Formatação padronizada de código
 └── package.json                    # Dependências e scripts de automação
 ```
 
