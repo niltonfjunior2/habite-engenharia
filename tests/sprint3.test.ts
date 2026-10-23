@@ -42,9 +42,9 @@ describe('Sprint 3 — PWA Engine & Performance Tests', () => {
     const indexPath = path.resolve(__dirname, '../index.html');
     const content = fs.readFileSync(indexPath, 'utf-8');
 
-    expect(content).toContain('href="./manifest.webmanifest"');
+    expect(content).toContain('href="/manifest.webmanifest"');
     expect(content).toContain('name="theme-color" content="#f26522"');
     expect(content).toContain('name="apple-mobile-web-app-capable" content="yes"');
-    expect(content).toContain('href="./icons/apple-touch-icon.png"');
+    expect(content).toContain('href="/icons/apple-touch-icon.png"');
   });
 });

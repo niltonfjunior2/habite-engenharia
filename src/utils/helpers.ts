@@ -21,12 +21,10 @@ export function buildMailtoUrl(email: string, subject: string, body?: string): s
 }
 
 /**
- * Retorna a URL correta do asset respeitando o BASE_URL da aplicação
+ * Retorna a URL canônica do asset a partir da raiz
  */
 export function getAssetUrl(assetPath: string): string {
   const cleanPath = assetPath.startsWith('/') ? assetPath.slice(1) : assetPath;
-  const base = import.meta.env.BASE_URL || './';
-  const prefix = base.endsWith('/') ? base : `${base}/`;
-  return `${prefix}${cleanPath}`;
+  return `/${cleanPath}`;
 }
 
