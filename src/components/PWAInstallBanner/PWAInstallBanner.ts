@@ -29,38 +29,64 @@ export function initPWAInstall(): void {
   const banner = document.getElementById('pwa-install-banner');
   const installBtn = document.getElementById('pwa-install-btn');
   const dismissBtn = document.getElementById('pwa-dismiss-btn');
+  const headerInstallBtn = document.getElementById('header-install-app-btn');
 
-  if (!banner || !installBtn || !dismissBtn) return;
-
-  const isDismissed = localStorage.getItem('habite_pwa_dismissed');
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
 
-  if (isDismissed || isStandalone) return;
+  // Se já estiver rodando como aplicativo instalado, esconde o botão do header
+  if (isStandalone && headerInstallBtn) {
+    headerInstallBtn.style.display = 'none';
+  }
 
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e as BeforeInstallPromptEvent;
-    banner.style.display = 'block';
-  });
-
-  installBtn.addEventListener('click', async () => {
-    if (!deferredPrompt) return;
-    banner.style.display = 'none';
-    await deferredPrompt.prompt();
-    const choice = await deferredPrompt.userChoice;
-    if (choice.outcome === 'accepted') {
-      localStorage.setItem('habite_pwa_dismissed', 'installed');
+    
+    // Mostra o banner apenas se não tiver sido dispensado previamente
+    const isDismissed = localStorage.getItem('habite_pwa_dismissed');
+    if (!isDismissed && banner) {
+      banner.style.display = 'block';
     }
-    deferredPrompt = null;
   });
 
-  dismissBtn.addEventListener('click', () => {
-    banner.style.display = 'none';
-    localStorage.setItem('habite_pwa_dismissed', 'true');
-  });
+  const triggerInstall = async () => {
+    if (deferredPrompt) {
+      if (banner) banner.style.display = 'none';
+      await deferredPrompt.prompt();
+      const choice = await deferredPrompt.userChoice;
+      if (choice.outcome === 'accepted') {
+        localStorage.setItem('habite_pwa_dismissed', 'installed');
+        if (headerInstallBtn) headerInstallBtn.style.display = 'none';
+      }
+      deferredPrompt = null;
+    } else {
+      // Caso o navegador não suporte ou já esteja pronto para atalho
+      alert(
+        'Para instalar a Habite Engenharia no seu dispositivo:\n\n' +
+        '1. No Chrome/Edge: Clique no ícone de instalação na barra de endereço (ou menu 3 pontos > "Instalar Aplicativo").\n' +
+        '2. No Safari (iPhone): Toque no botão Compartilhar e selecione "Adicionar à Tela de Início".'
+      );
+    }
+  };
+
+  if (installBtn) {
+    installBtn.addEventListener('click', triggerInstall);
+  }
+
+  if (headerInstallBtn) {
+    headerInstallBtn.addEventListener('click', triggerInstall);
+  }
+
+  if (dismissBtn && banner) {
+    dismissBtn.addEventListener('click', () => {
+      banner.style.display = 'none';
+      localStorage.setItem('habite_pwa_dismissed', 'true');
+    });
+  }
 
   window.addEventListener('appinstalled', () => {
-    banner.style.display = 'none';
+    if (banner) banner.style.display = 'none';
+    if (headerInstallBtn) headerInstallBtn.style.display = 'none';
     localStorage.setItem('habite_pwa_dismissed', 'installed');
   });
 }

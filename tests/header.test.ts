@@ -25,4 +25,10 @@ describe('Header Component Tests', () => {
     expect(html).toContain('target="_blank"');
     expect(html).toContain('rel="noopener noreferrer"');
   });
+
+  it('deve conter o botão Instalar App na barra de navegação', () => {
+    const html = renderHeader();
+    expect(html).toContain('id="header-install-app-btn"');
+    expect(html).toContain('Instalar App');
+  });
 });

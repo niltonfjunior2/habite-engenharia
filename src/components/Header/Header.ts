@@ -29,15 +29,32 @@ export function renderHeader(): string {
           <a href="#contato" class="site-header__link">Contato</a>
         </nav>
 
-        <a
-          href="${whatsappUrl}"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="site-header__cta-btn"
-          aria-label="Falar com Engenheiro no WhatsApp"
-        >
-          Falar com Engenheiro
-        </a>
+        <div class="site-header__actions">
+          <button
+            type="button"
+            id="header-install-app-btn"
+            class="site-header__install-btn"
+            aria-label="Instalar Aplicativo Habite Engenharia"
+            title="Instalar App no Dispositivo"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Instalar App</span>
+          </button>
+
+          <a
+            href="${whatsappUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="site-header__cta-btn"
+            aria-label="Falar com Engenheiro no WhatsApp"
+          >
+            Falar com Engenheiro
+          </a>
+        </div>
       </div>
     </header>
   `;
