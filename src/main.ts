@@ -8,6 +8,7 @@ import { renderContact } from './components/Contact/Contact';
 import { renderFooter } from './components/Footer/Footer';
 import { renderWhatsAppButton } from './components/WhatsAppButton/WhatsAppButton';
 import { renderPWAInstallBanner, initPWAInstall } from './components/PWAInstallBanner/PWAInstallBanner';
+import { renderLegalModal, initLegalModal } from './components/LegalModal/LegalModal';
 import { getAssetUrl } from './utils/helpers';
 
 // PWA Service Worker Registration
@@ -36,7 +37,10 @@ if (appElement) {
     ${renderFooter()}
     ${renderWhatsAppButton()}
     ${renderPWAInstallBanner()}
+    ${renderLegalModal()}
   `;
 
   initPWAInstall();
+  initLegalModal();
 }
+

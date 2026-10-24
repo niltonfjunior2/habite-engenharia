@@ -14,6 +14,7 @@
   <img src="https://img.shields.io/badge/PWA-Instalável-orange?style=for-the-badge&logo=pwa" alt="PWA" />
   <img src="https://img.shields.io/badge/TypeScript-5.7-blue?style=for-the-badge&logo=typescript" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite" alt="Vite" />
+  <img src="https://img.shields.io/badge/LGPD-Conforme-00A86B?style=for-the-badge" alt="LGPD" />
   <img src="https://img.shields.io/badge/Deploy-Vercel_(Custo_Zero)-black?style=for-the-badge&logo=vercel" alt="Vercel" />
 </p>
 
@@ -37,7 +38,7 @@ Este repositório contém a **Landing Page Canônica Moderna** da empresa, desen
 
 2. **Prevenção e Combate a Incêndio (AVCB / CLCB):**
    * Elaboração e aprovação de Projetos de Segurança Contra Incêndio e Pânico (PSIP).
-   * Obtenção e renovação de AVCB junto ao Corpo de Bombeiros Militar.
+   * Obtenção e renovação de AVCB junto ao Corpo de Bombeiros Militar de Minas Gerais (CBMMG).
    * Dimensionamento de hidrantes, extintores, sinalização e saídas de emergência.
    * Laudos de conformidade técnica para indústrias, comércios, escolas e condomínios.
 
@@ -46,17 +47,25 @@ Este repositório contém a **Landing Page Canônica Moderna** da empresa, desen
 ## 🚀 Principais Recursos & Diferenciais Técnicos
 
 * 📱 **Mobile-First & Ergonomia:** Layout concebido primeiramente para telas estreitas (360px a 430px), com todos os botões de ação e conversão posicionados na zona de alcance natural do polegar (*thumb zone*).
-* ⚡ **Progressive Web App (PWA):**
-  * Instalável em Android, iOS e Windows/macOS através do W3C Manifest.
-  * **Botão "Instalar App" no Header:** Acesso direto na barra de navegação superior ao lado de "Falar com Engenheiro".
+* ⚡ **Progressive Web App (PWA) Universal:**
+  * Instalável em Android, iOS e Windows/macOS através do W3C Web App Manifest.
+  * **Botão "Instalar App" no Header Responsivo:** Visível em qualquer viewport (desktop e mobile), com rótulos inteligentes adaptativos (`Instalar App` no desktop e `Instalar` em telas estreitas).
+  * **Modal de Instruções para iOS/Safari & Android:** Passo a passo ilustrado para navegadores sem evento automático de instalação.
+  * **Atalho de Instalação no Rodapé:** Opção adicional acessível no final da navegação.
   * **Toast Banner Inteligente:** Diálogo discreto na base da tela com persistência de escolha ("Agora não") no `localStorage`.
   * **Service Worker com Cache Offline:** Estratégia *Stale-While-Revalidate* que permite a consulta aos telefones e serviços da empresa mesmo em locais de obra sem conectividade.
+* 📜 **Termos de Uso & Política de Privacidade em Janelas Flutuantes (Quadro Modal):**
+  * Links na linha final do rodapé integrados a uma janela flutuante com *backdrop blur*.
+  * Sem necessidade de recarregamento ou troca de página (SPA feeling).
+  * Alternância instantânea entre *Termos de Uso* e *Política de Privacidade* via abas internas.
+  * Textos desacoplados em `src/data/legal.ts` em estrita conformidade com a **LGPD (Lei nº 13.709/2018)** e responsabilidades técnicas **CREA-MG / ART**.
+  * Fechamento ágil via botão de fechar, clique no fundo escurecido ou tecla `Esc`.
 * 💬 **Conversão Direta sem Fricção:**
   * Botão flutuante de WhatsApp com animação de pulso e mensagens parametrizadas em UTF-8.
   * Links diretos para WhatsApp oficial (`(32) 98513-2276`) e E-mail corporativo (`gabriel.monteiro@professor.faminas.edu.br`).
 * 🔒 **Zero Dependência Externa (Sem Hotlink):** Todos os logotipos, fotografias e ilustrações em WebP residem fisicamente no repositório (`public/assets/`), prevenindo quebras no momento da virada de DNS.
 * 🛡️ **Segurança Robusta:** Configuração estrita de cabeçalhos HTTP no [vercel.json](file:///c:/Users/Nilton/Workspaces/AG_Workspace/habite-engenharia/vercel.json) (`CSP`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`).
-* 📦 **Bundle Ultraleve:** Menos de 10 kB compactados (gzip), alcançando nota máxima no Google Lighthouse.
+* 📦 **Bundle Ultraleve:** Menos de 11 kB compactados (gzip), alcançando nota máxima de performance no Google Lighthouse.
 
 ---
 
@@ -68,7 +77,7 @@ Este repositório contém a **Landing Page Canônica Moderna** da empresa, desen
 | **Bundler / Tooling** | Vite 6.0 | Compilação instantânea (180ms) e HMR ultrarrápido |
 | **Estilização** | Vanilla CSS Modular + Custom Properties | Design System corporativo sem overhead de frameworks |
 | **PWA & Cache** | Service Worker Vanilla + Web App Manifest | Controle granular de ciclo de vida e precache estático |
-| **Testes Automatizados** | Vitest 2.1 | 18 testes automatizados para layout, links e PWA |
+| **Testes Automatizados** | Vitest 2.1 | 23 testes automatizados para layout, links, PWA e compliance |
 | **Linter & Code Style** | ESLint 9 + Prettier | Código limpo, padronizado e auditado continuamente |
 | **Hospedagem / CDN** | Vercel Global Edge Network | Custo R$ 0,00, HTTP/3 e certificado SSL/TLS automático |
 
@@ -99,15 +108,17 @@ habite-engenharia/
 │   ├── components/                 # Módulos de interface desacoplados
 │   │   ├── About/                  # Seção institucional Quem Somos
 │   │   ├── Contact/                # Seção de canais de contato e conversão
-│   │   ├── Footer/                 # Rodapé com links de navegação e copyright
-│   │   ├── Header/                 # Topbar com logo, menu, botão Instalar App e CTA
+│   │   ├── Footer/                 # Rodapé com links de navegação, copyright e links legais
+│   │   ├── Header/                 # Topbar com logo, menu, botão Instalar App universal e CTA
 │   │   ├── Hero/                   # Seção de abertura de alto impacto
-│   │   ├── PWAInstallBanner/       # Diálogo e botão de instalação do PWA
+│   │   ├── LegalModal/             # Quadro flutuante modal para Termos de Uso e LGPD
+│   │   ├── PWAInstallBanner/       # Diálogo e modal de instalação PWA (iOS/Android)
 │   │   ├── Services/               # Cards detalhados de Regularização e AVCB
 │   │   ├── TargetAudience/         # Segmentação por persona (síndicos, construtoras, etc.)
 │   │   └── WhatsAppButton/         # Botão flutuante ergonômico com efeito pulso
 │   ├── data/                       # Contratos de dados desacoplados (Fase 2 Supabase Ready)
 │   │   ├── company.ts              # Informações da empresa e contatos oficiais
+│   │   ├── legal.ts                # Textos canônicos de Termos de Uso e Política de Privacidade
 │   │   └── services.ts             # Catálogo de serviços e personas
 │   ├── styles/                     # Sistema de estilos Vanilla CSS
 │   │   ├── tokens.css              # Tokens visuais (cores Habite, tipografia, elevação)
@@ -121,7 +132,8 @@ habite-engenharia/
 │   ├── sanity.test.ts
 │   ├── header.test.ts
 │   ├── sprint2.test.ts
-│   └── sprint3.test.ts
+│   ├── sprint3.test.ts
+│   └── legal.test.ts
 ├── .gitignore                      # Regras de exclusão do Git (inclui .ai/, node_modules/, dist/)
 ├── vercel.json                     # Configuração de headers de segurança e cache
 ├── vite.config.ts                  # Configuração de build e testes

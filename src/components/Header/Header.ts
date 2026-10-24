@@ -42,7 +42,8 @@ export function renderHeader(): string {
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
-            <span>Instalar App</span>
+            <span class="site-header__install-text-full">Instalar App</span>
+            <span class="site-header__install-text-short">Instalar</span>
           </button>
 
           <a
@@ -52,7 +53,8 @@ export function renderHeader(): string {
             class="site-header__cta-btn"
             aria-label="Falar com Engenheiro no WhatsApp"
           >
-            Falar com Engenheiro
+            <span class="site-header__cta-text-full">Falar com Engenheiro</span>
+            <span class="site-header__cta-text-short">WhatsApp</span>
           </a>
         </div>
       </div>

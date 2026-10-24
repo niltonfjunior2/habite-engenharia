@@ -26,9 +26,11 @@ describe('Header Component Tests', () => {
     expect(html).toContain('rel="noopener noreferrer"');
   });
 
-  it('deve conter o botão Instalar App na barra de navegação', () => {
+  it('deve conter o botão Instalar App na barra de navegação com suporte a responsividade mobile', () => {
     const html = renderHeader();
     expect(html).toContain('id="header-install-app-btn"');
     expect(html).toContain('Instalar App');
+    expect(html).toContain('site-header__install-text-short');
+    expect(html).toContain('aria-label="Instalar Aplicativo Habite Engenharia"');
   });
 });
